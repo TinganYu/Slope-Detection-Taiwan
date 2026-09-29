@@ -15,7 +15,6 @@
 - [資料前處理](#資料前處理)
 - [實驗結果與分析](#實驗結果與分析)
 - [重現性與隱私](#重現性與隱私)
-- [建立新的 GitHub repo](#建立新的-github-repo)
 - [授權](#授權)
 
 ## 專案目的
@@ -232,33 +231,6 @@ Data/
 - 結果圖片仍可能暴露資料的時間範圍、變化特徵或測站資訊，發布前請再次審查。
 - 使用 `git status` 與 `git diff --cached --stat` 檢查即將提交的內容。
 - 實驗結果可能受到套件版本、亂數種子、硬體與資料切分方式影響。
-
-## 建立新的 GitHub repo
-
-如果不希望原本 repo 的擁有者收到通知，請**不要 Fork、不要在原 repo 建立 Pull Request，也不要把新內容 push 回原本的 remote**。在 GitHub 網頁上直接建立一個全新的空白 repository，並且不要勾選自動建立 README、`.gitignore` 或 license。
-
-接著在本機 repository 根目錄的 PowerShell 執行：
-
-```powershell
-# 建立全新 Git 歷史，避免舊 repo 的 commit history 被帶過去
-git switch --orphan clean-main
-git rm -r --cached .
-git add .
-
-# 提交前確認沒有 CSV、lightning_logs 或 checkpoint
-git status
-git diff --cached --stat
-git commit -m "Initial public release"
-
-git branch -M main
-git remote remove origin
-git remote add origin https://github.com/<你的帳號>/<新的repo名稱>.git
-git push -u origin main
-```
-
-這樣建立的是獨立的新 repo，原 repo 擁有者通常不會因為你建立或 push 到另一個 repo 而收到 GitHub 通知。GitHub 仍可能對公開 repo 進行一般性的安全掃描或索引，這與通知原 repo 擁有者不同。若要更高的隱私，建立 repo 時先選 **Private**。
-
-`git rm --cached` 只會將檔案從 Git 索引移除，不會刪除本機的資料檔案。
 
 ## 授權
 
