@@ -1,0 +1,43 @@
+# Local datasets and generated data
+Data/**/*.csv
+Data/**/*.tsv
+Data/**/*.xlsx
+Data/**/*.xls
+Data/**/*.parquet
+Data/**/*.zip
+Data/**/*.7z
+Data/**/*.rar
+
+# Training outputs, checkpoints, and experiment logs
+lightning_logs/
+**/checkpoints/
+*.ckpt
+*.pt
+*.pth
+*.onnx
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+.env
+
+# Jupyter and local tooling
+.ipynb_checkpoints/
+.python-version
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Generated exports and temporary files
+*.log
+*.tmp
+*.bak
